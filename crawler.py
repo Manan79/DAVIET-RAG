@@ -172,5 +172,5 @@ async def crawl_website(
 
 
 if __name__ == "__main__":
-    max_p = int(sys.argv[1]) if len(sys.argv) > 1 else 10
-    asyncio.run(crawl_website(max_pages=max_p))
+    
+    asyncio.run(crawl_website(max_pages=MAX_PAGES_DEFAULT, headless=True))

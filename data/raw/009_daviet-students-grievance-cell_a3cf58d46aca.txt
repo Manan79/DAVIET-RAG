@@ -1,8 +1,10 @@
 URL: https://davietjal.org/daviet-students-grievance-cell/
 TITLE: DAVIET Students Grievance Cell – DAV Institute of Engineering and Technology
-CRAWLED_AT: 2026-11-23T10:57:14.898801+00:00
+CRAWLED_AT: 2026-11-23T13:42:53.556697+00:00
 ==================================================
 
+
+DAVIET Students Grievance Cell
 Student Grievance Redressal Policy
 DAV Institute of Engineering & Technology, Jalandhar (DAVIET) has an established mechanism for redressal of students grievances related to academic and non academic matters viz. victimization, attendance, charging of fee, conduct of examinations /assessment/evaluation, library, centralized facilities, hostel mess, canteen, harassment by co students or teachers/ supporting staff etc.
 1. Objectives of Grievance Redressal Committee:
