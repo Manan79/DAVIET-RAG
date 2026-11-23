@@ -7,5 +7,6 @@ dotenv
 langchain-openai
 openai
 langsmith 
+langchain-community
 faiss-cpu
 streamlit
