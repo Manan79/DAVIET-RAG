@@ -9,3 +9,7 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+
+#remove the data folder form git tracking
+data/*

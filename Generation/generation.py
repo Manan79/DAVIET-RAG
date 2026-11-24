@@ -8,7 +8,7 @@ from langchain_openrouter import ChatOpenRouter
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
-
+message_history = []
 
 def answer_question(question: str) -> tuple[str, list]:
     """Return an answer and the documents used as context."""
@@ -23,12 +23,26 @@ def answer_question(question: str) -> tuple[str, list]:
         embeddings,
         allow_dangerous_deserialization=True,
     )
-    documents = vectorstore.as_retriever(search_kwargs={"k": 4}).invoke(question)
+    documents = vectorstore.as_retriever(search_kwargs={"k": 3}).invoke(question)
+
+    if len(message_history) > 4:
+        recent_messages = message_history[-3:]
+    else:
+        recent_messages = message_history
+
     context = "\n\n".join(doc.page_content for doc in documents)
+    history_str = "\n".join(f"{m['role'].capitalize()}: {m['content']}" for m in recent_messages)
 
     llm = ChatOpenRouter(model="openai/gpt-4o-mini", api_key=api_key)
-    response = llm.invoke(
-        "Answer using only the context below. If the answer isn't there, say you don't know.\n\n"
-        f"Context:\n{context}\n\nQuestion: {question}"
+    prompt = (
+        "Answer using only the context and conversation history. If the context and conversation history do not provide enough information, say 'I don't know.'\n\n"
+        "DAVIET full form is DAV Institute of Engineering and Technology.\n\n"
+        f"Conversation History:\n{history_str}\n\n"
+        f"Context:\n{context}\n\n"
+        f"Question: {question}"
     )
+    response = llm.invoke(prompt)
+
+    message_history.append({"role": "user", "content": question})
+    message_history.append({"role": "assistant", "content": response.content})
     return response.content, documents

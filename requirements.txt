@@ -10,3 +10,4 @@ langsmith
 langchain-community
 faiss-cpu
 streamlit
+langchain-google-genai

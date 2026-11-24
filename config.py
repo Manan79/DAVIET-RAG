@@ -15,4 +15,4 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 # Simple crawler settings
 START_URL = os.getenv("START_URL", "https://davietjal.org/")
 ALLOWED_DOMAIN = os.getenv("ALLOWED_DOMAIN", "davietjal.org")
-MAX_PAGES_DEFAULT = int(os.getenv("MAX_PAGES", "50"))
+MAX_PAGES_DEFAULT = int(os.getenv("MAX_PAGES", "500"))
